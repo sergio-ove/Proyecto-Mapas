@@ -6,6 +6,7 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { transform } from 'ol/proj';
 import '../css/main.css'
+import { estadios } from './estadios';
 
 
 export const MapStadium = () => {
@@ -13,6 +14,7 @@ export const MapStadium = () => {
   const [data, setData] = useState(null);
   const claveApi = '30f3a4ca9d5a4679a03678438ffa439a'
 
+  console.log(estadios);
 
   useEffect(() => {
 
@@ -29,7 +31,7 @@ export const MapStadium = () => {
     //centro de coordenadas y zoom con el que se inicia.
     const view = new View({
       center: centrarCoordenadas,
-      zoom: 7,
+      zoom: 6,
     });
 
     //Creamos instancia.
@@ -58,14 +60,17 @@ export const MapStadium = () => {
         console.log(resultados);
         if (resultados.length > 0) {
           const comunidad = resultados[0].components
-          console.log(comunidad);
-          setData(comunidad)
-
+          setData(comunidad.state)
+          const buscar = resultados[0].components.state
+          const coincidencia = estadios.filter((element) => element.Comunidad === buscar)
+          setData(coincidencia)
         }
       } catch (error) {
         console.error(error);
       }
+
     });
+
 
 
 
@@ -83,31 +88,33 @@ export const MapStadium = () => {
 
       <div id="map" className='mapa'>
 
-        <div className='divInfo'>
+        <div>
 
-          {data &&
+          {data ? data.map((element) => (
 
-            <table class="default">
+            <div key={element.estadio} className='divTabla'>
+              <table class="tabla">
 
-              <caption>Información</caption>
+                <tr>
+                  <th>Comunidad Autónoma</th>
+                  <th>Ciudad</th>
+                  <th>Estadio</th>
+                  <th>Capacidad</th>
+                </tr>
 
-              <tr>
-                <th>País</th>
-                <th>Comunidad Autónoma</th>
-                <th>Ciudad</th>
-                <th>Municipio</th>
-              </tr>
+                <tr>
+                  <td>{element.Comunidad}</td>
+                  <td>{element.ciudad}</td>
+                  <td> {element.estadio}</td>
+                  <td> {element.capacidad}</td>
+                </tr>
 
-              <tr>
-                <td>{data.country}</td>
-                <td>{data.state}</td>
-                <td>{data.state_district ? data.state_district : "No hay información"}</td>
-                <td> {data.village ? data.village : "No hay información"}</td>
-              </tr>
+              </table>
+          
+            </div>
 
-            </table>
 
-          }
+          )) : ""}
 
         </div>
 
