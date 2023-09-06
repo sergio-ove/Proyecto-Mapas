@@ -11,10 +11,11 @@
 
 .titulo{
     text-align: center;
-    background-color: rgb(53, 205, 129);
+    background-color: rgb(128, 127, 127);
     font-size: 40px;
     padding: 5px;
-    border: solid 1px
+    border: solid 1px;
+    color: rgb(0, 0, 0);
 }
 
 .divtabla{
@@ -23,6 +24,8 @@
 
 .tabla{
     width: 100%;
+    margin-top: 1px;
+    background-color: rgb(155, 222, 189);
 }
 
 .divInfo h1{

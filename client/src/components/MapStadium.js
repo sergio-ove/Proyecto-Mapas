@@ -84,7 +84,7 @@ export const MapStadium = () => {
   return (
 
     <div>
-      <h1 className='titulo'>Clickea en algún punto para obtener más información</h1>
+      <h1 className='titulo'>Clickea para buscar tu estadio más cercano</h1>
 
       <div id="map" className='mapa'>
 
