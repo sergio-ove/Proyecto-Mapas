@@ -2,3 +2,26 @@
     width: 100%;
     height: 100vh;
 }
+
+.pComunidad{
+    text-align: center;
+    margin: auto;
+    font-size: 70px;
+}
+
+div .pinfo{
+    width: 500px;
+}
+
+.pInfo{
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    background-color: rgba(9, 8, 8, 0.7);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 30px;
+    color: #ffffff;
+    z-index: 4;
+}
