@@ -37,7 +37,7 @@ table{
     font-size: 30px;
     color: #ffffff;
     z-index: 4;
-
+    border: solid 2px;
 }
 
 th{
@@ -64,3 +64,57 @@ caption{
 }
 
 
+
+/*//////////////////////////////*/
+
+@media screen and (max-width:900px) {
+table{
+   width: 100%;
+    border-radius: 20px;
+    position: fixed;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 10px;
+    color: #ffffff;
+    z-index: 4;
+    border: solid 2px;
+    top: 120px;
+    left: 9px;
+}
+
+
+th{
+    border: solid rgb(209, 202, 202);
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    background-color: rgb(53, 205, 129);
+    font-size: 15px;
+    text-align: center;
+
+}
+
+td{
+    border: solid rgb(209, 202, 202);
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
+
+}
+
+.titulo{
+    text-align: center;
+    background-color: rgb(53, 205, 129);
+    font-size: 30px;
+    padding: 2px;
+    border: solid 1px
+}
+
+caption{
+    font-size: 30px;
+}
+
+
+}

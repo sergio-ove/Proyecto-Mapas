@@ -9,25 +9,30 @@ import '../css/main.css'
 
 
 export const MapStadium = () => {
-  const [clickedLocation, setClickedLocation] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+
+  const [data, setData] = useState(null);
   const claveApi = '30f3a4ca9d5a4679a03678438ffa439a'
 
 
   useEffect(() => {
-    const centrarCoordenadas = [-385829.7235784164, 4885295.083634573];
-    // [-102813.94393640896, 5117190.872603971]
 
+    //Centramos coordenadas del mapa en España
+    const centrarCoordenadas = [-385829.7235784164, 4885295.083634573];
+
+    //Configuración del mapa:
+
+    //Configuramos mapa base.
     const baseLayer = new TileLayer({
       source: new OSM(),
     });
 
+    //centro de coordenadas y zoom con el que se inicia.
     const view = new View({
       center: centrarCoordenadas,
-      zoom: 7, // Nivel de zoom inicial
+      zoom: 7,
     });
 
-
+    //Creamos instancia.
     const olMap = new Map({
       layers: [baseLayer],
       target: 'map',
@@ -35,34 +40,30 @@ export const MapStadium = () => {
     });
 
 
-    ////////////evento click para recoger las coordenadas del usuario al clickar
+    //evento click para recoger las coordenadas del usuario al clickar
     olMap.on('click', async (e) => {
-      setIsOpen(true)
       const coordenadas = e.coordinate;
-      console.log(coordenadas);
       const coordenadasConvertidas = transform(coordenadas, 'EPSG:3857', 'EPSG:4326');
-      console.log(coordenadasConvertidas);
 
+      //Hacemos petición a la api de OpenCage para recoger datos por coordenadas
       try {
-        const response = await fetch(
-          `https://api.opencagedata.com/geocode/v1/json?key=${claveApi}&q=${coordenadasConvertidas[1]}+${coordenadasConvertidas[0]}`
-        );
+        const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?key=${claveApi}&q=${coordenadasConvertidas[1]}+${coordenadasConvertidas[0]}`);
 
         if (!response.ok) {
           throw new Error('Error en la solicitud');
         }
 
-        const data = await response.json();
-        const results = data.results;
-        console.log(results);
-        if (results.length > 0) {
-          const comunidad = results[0].components
+        const datos = await response.json();
+        const resultados = datos.results;
+        console.log(resultados);
+        if (resultados.length > 0) {
+          const comunidad = resultados[0].components
           console.log(comunidad);
-          setClickedLocation(comunidad)
+          setData(comunidad)
 
         }
       } catch (error) {
-        console.error('Error al obtener la información de ubicación:', error);
+        console.error(error);
       }
     });
 
@@ -84,7 +85,7 @@ export const MapStadium = () => {
 
         <div className='divInfo'>
 
-          {clickedLocation &&
+          {data &&
 
             <table class="default">
 
@@ -98,10 +99,10 @@ export const MapStadium = () => {
               </tr>
 
               <tr>
-                <td>{clickedLocation.country}</td>
-                <td>{clickedLocation.state}</td>
-                <td>{clickedLocation.state_district ? clickedLocation.state_district : "No hay información"}</td>
-                <td> {clickedLocation.village ? clickedLocation.village : "No hay información"}</td>
+                <td>{data.country}</td>
+                <td>{data.state}</td>
+                <td>{data.state_district ? data.state_district : "No hay información"}</td>
+                <td> {data.village ? data.village : "No hay información"}</td>
               </tr>
 
             </table>
