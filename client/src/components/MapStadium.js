@@ -37,6 +37,7 @@ export const MapStadium = () => {
 
     ////////////evento click para recoger las coordenadas del usuario al clickar
     olMap.on('click', async (e) => {
+      setIsOpen(true)
       const coordenadas = e.coordinate;
       console.log(coordenadas);
       const coordenadasConvertidas = transform(coordenadas, 'EPSG:3857', 'EPSG:4326');
@@ -55,9 +56,10 @@ export const MapStadium = () => {
         const results = data.results;
         console.log(results);
         if (results.length > 0) {
-          const comunidad = results[0].components.state
-          setClickedLocation(comunidad)
+          const comunidad = results[0].components
           console.log(comunidad);
+          setClickedLocation(comunidad)
+
         }
       } catch (error) {
         console.error('Error al obtener la información de ubicación:', error);
@@ -76,15 +78,40 @@ export const MapStadium = () => {
   return (
 
     <div>
-      <h1>{clickedLocation && <p>{clickedLocation}</p>}</h1>
+      <h1 className='titulo'>Clickea en algún punto para obtener más información</h1>
+
       <div id="map" className='mapa'>
 
-        <div>
-        <p className='pInfo'>Marque la comunida que le interese</p>
+        <div className='divInfo'>
+
+          {clickedLocation &&
+
+            <table class="default">
+
+              <caption>Información</caption>
+
+              <tr>
+                <th>País</th>
+                <th>Comunidad Autónoma</th>
+                <th>Ciudad</th>
+                <th>Municipio</th>
+              </tr>
+
+              <tr>
+                <td>{clickedLocation.country}</td>
+                <td>{clickedLocation.state}</td>
+                <td>{clickedLocation.state_district ? clickedLocation.state_district : "No hay información"}</td>
+                <td> {clickedLocation.village ? clickedLocation.village : "No hay información"}</td>
+              </tr>
+
+            </table>
+
+          }
+
         </div>
 
-
       </div>
+
     </div>
   );
 }

@@ -1,21 +1,34 @@
-.mapa{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mapa {
     width: 100%;
     height: 100vh;
 }
 
-.pComunidad{
+.titulo{
     text-align: center;
-    margin: auto;
-    font-size: 70px;
+    background-color: rgb(53, 205, 129);
+    font-size: 40px;
+    padding: 5px;
+    border: solid 1px
 }
 
-div .pinfo{
-    width: 500px;
+
+.divInfo h1{
+    font-size: 27px;
+    color: bisque;
 }
 
-.pInfo{
+table{
+    width: 480px;
+    max-width: 480px;
+    border-radius: 20px;
     position: absolute;
-    top: 100px;
+    top: 250px;
     left: 20px;
     background-color: rgba(9, 8, 8, 0.7);
     padding: 20px;
@@ -24,4 +37,30 @@ div .pinfo{
     font-size: 30px;
     color: #ffffff;
     z-index: 4;
+
 }
+
+th{
+    border: solid rgb(209, 202, 202);
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    background-color: rgb(53, 205, 129);
+    font-size: 25px;
+    text-align: center;
+}
+
+td{
+    border: solid rgb(209, 202, 202);
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+caption{
+    color: black;
+    font-size: 40px;
+}
+
+
