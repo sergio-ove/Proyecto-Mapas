@@ -13,6 +13,12 @@ export const estadios =
         "capacidad": "68.456",
         "ciudad": "Madrid"
     },
+    {
+        "Comunidad": "Comunidad de Madrid",
+        "estadio": "Estadio de Vallecas",
+        "capacidad": "14.700",
+        "ciudad": "Madrid"
+    },
 
     {
         "Comunidad": "Cataluña",
@@ -37,6 +43,12 @@ export const estadios =
         "estadio": "Estadio Martínez Valero",
         "capacidad": "31.000",
         "ciudad": "Elche"
+    },
+    {
+        "Comunidad": "Comunidad Valenciana",
+        "estadio": "Estadio José Rico Pérez",
+        "capacidad": "29.500",
+        "ciudad": "Alicante"
     },
 
     {
