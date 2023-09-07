@@ -7,6 +7,7 @@ import OSM from 'ol/source/OSM';
 import { transform } from 'ol/proj';
 import '../css/main.css'
 import { estadios } from './estadios';
+import estadio from '../image/estadio.png'
 
 
 export const MapStadium = () => {
@@ -84,9 +85,12 @@ export const MapStadium = () => {
   return (
 
     <div>
-      <h1 className='titulo'>Clickea para buscar tu estadio más cercano</h1>
-
       <div id="map" className='mapa'>
+        <div className='divIcono'>
+          <h1 className='titulo'>YourStadiums</h1>
+          <p>Busca tu estadio más cercano</p>
+          <img src={estadio} alt="logo de un estadio" />
+        </div>
 
         <div>
 
@@ -110,7 +114,7 @@ export const MapStadium = () => {
                 </tr>
 
               </table>
-          
+
             </div>
 
 

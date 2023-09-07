@@ -32,6 +32,12 @@ export const estadios =
         "capacidad": "25.000",
         "ciudad": "Villareal"
     },
+    {
+        "Comunidad": "Comunidad Valenciana",
+        "estadio": "Estadio Martínez Valero",
+        "capacidad": "31.000",
+        "ciudad": "Elche"
+    },
 
     {
         "Comunidad": "Andalucía",
@@ -57,7 +63,12 @@ export const estadios =
         "capacidad": "17.500",
         "ciudad": "Albacete"
     },
-
+    {
+        "Comunidad": "Castilla-La Mancha",
+        "estadio": "Estadio Salto del Caballo",
+        "capacidad": "5.500",
+        "ciudad": "Toledo"
+    },
     {
         "Comunidad": "Castilla y León",
         "estadio": "Estadio Jose Zorrilla",
@@ -65,11 +76,24 @@ export const estadios =
         "ciudad": "Valladolid"
     },
     {
+        "Comunidad": "Castilla y León",
+        "estadio": "Nuevo Estadio Los Pajaritos",
+        "capacidad": "8.200",
+        "ciudad": "Soria"
+    },
+    {
 
         "Comunidad": "País Vasco",
         "estadio": "Estadio San Mamés",
         "capacidad": "53.000",
         "ciudad": "Bilbao"
+    },
+    {
+
+        "Comunidad": "País Vasco",
+        "estadio": "Estadio Reale Arena",
+        "capacidad": "40.000",
+        "ciudad": "San Sebastian"
     },
     {
         "Comunidad": "Asturias",
@@ -88,6 +112,36 @@ export const estadios =
         "estadio": "Estadio La Romareda",
         "capacidad": "33.000",
         "ciudad": "Zaragoza"
+    },
+    {
+        "Comunidad": "Galicia",
+        "estadio": "Estadio de Riazor",
+        "capacidad": "32.600",
+        "ciudad": "La Coruña"
+    },
+    {
+        "Comunidad": "Galicia",
+        "estadio": "Estadio de Balaídos ",
+        "capacidad": "25.000",
+        "ciudad": "Vigo"
+    },
+    {
+        "Comunidad": "Extremadura",
+        "estadio": "Estadio Francisco de la Hera",
+        "capacidad": "11.5000",
+        "ciudad": "Extremadura"
+    },
+    {
+        "Comunidad": "Región de Murcia",
+        "estadio": "Estadio Nueva Condomina",
+        "capacidad": "31.000",
+        "ciudad": "Murcia"
+    },
+    {
+        "Comunidad": "La Rioja",
+        "estadio": "Estadio Municipal de las Gaunas",
+        "capacidad": "16.000",
+        "ciudad": "Logroño"
     }
 
     ]
